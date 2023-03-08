@@ -30,5 +30,7 @@ a script that prints the type of the file named iamafile. The file iamafile will
 ## 13. We are symbols, and inhabit symbols
 a script to create a symbolic link to /bin/ls, named __ls__
 ## 14. Copy HTML files
-a script that copies all the HTML files from the current working directory to the parent of the working directory, but only copy files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.
+a script that copies all the HTML files from the current working directory to the parent of the working directory, but only copy files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory
+## 15. Let’s move
+a script that moves all files beginning with an uppercase letter to the directory /tmp/u..
 
