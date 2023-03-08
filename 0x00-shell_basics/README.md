@@ -8,3 +8,8 @@ a script that changes the working directory to the user’s home directory
 a script to display current directory contents in a long format
 ## 4. Hidden files
 a script to display current directory contents, including hidden files
+## 5. I love numbers
+Display current directory contents
+* Long format
+* with user and group IDs displayed numerically
+* And hidden files (starting with .)
