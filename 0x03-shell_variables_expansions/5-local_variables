@@ -1,2 +1,2 @@
 #!/bin/bash
-set; env; declare -F
+set
