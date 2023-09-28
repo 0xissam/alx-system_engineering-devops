@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
-# This script displays numbers from 1 to 100.
-
-for number in {1..100}
-do
-    if [ $((number % 3)) == 0 ] && [ $((number % 5)) == 0 ]
-    then
+# This script is displaying "Best School" 10 times
+counter=0
+while ((counter++<100)); do
+    if (( counter % 3 == 0 && counter % 5 == 0 )); then
         echo "FizzBuzz"
-    elif [ $((number % 5)) == 0 ]
-    then
-        echo "Buzz"
-    elif [ $((number % 3)) == 0 ]
-    then
+    elif (( counter % 3 == 0 )); then
         echo "Fizz"
+    elif (( counter % 5 == 0 )); then
+        echo "Buzz"
     else
-        echo "$number"
+        echo $counter
     fi
 done
