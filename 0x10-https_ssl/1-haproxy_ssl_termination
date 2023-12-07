@@ -39,17 +39,17 @@ defaults
         option forwardfor
         option http-server-close
 
-#--munyasi.tech-params-begin--
-frontend munyasi.tech-frontend
+#--0xissam.tech-params-begin--
+frontend 0xissam.tech-frontend
         bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/munyasi.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/0xissam.tech.pem
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         http-request set-header X-Forwarded-Proto http
         # ADDITIONS
         use_backend letsencrypt-backend if letsencrypt-acl
-        default_backend munyasi.tech-backend
+        default_backend 0xissam.tech-backend
 
-backend munyasi.tech-backend
+backend 0xissam.tech-backend
         balance roundrobin
         redirect scheme https if !{ ssl_fc }
         server 20639-web-01 34.224.63.120:80 check
@@ -57,4 +57,4 @@ backend munyasi.tech-backend
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
-#--munyasi.tech-params-end--
+#--0xissam.tech-params-end--
