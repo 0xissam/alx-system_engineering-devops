@@ -7,9 +7,6 @@ global
         user haproxy
         group haproxy
         daemon
-        # ADDITIONS
-        maxconn 2048
-        tune.ssl.default-dh-param 2048
 
         # Default SSL material locations
         ca-base /etc/ssl/certs
@@ -35,26 +32,16 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-        # ADDITIONS
-        option forwardfor
-        option http-server-close
 
-#--0xissam.tech-params-begin--
-frontend 0xissam.tech-frontend
-        bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/0xissam.tech.pem
-        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-        http-request set-header X-Forwarded-Proto http
-        # ADDITIONS
-        use_backend letsencrypt-backend if letsencrypt-acl
-        default_backend 0xissam.tech-backend
-
-backend 0xissam.tech-backend
+#--munyasi.tech-params-begin--
+backend munyasi.tech-backend
         balance roundrobin
-        redirect scheme https if !{ ssl_fc }
-        server 20639-web-01 34.224.63.120:80 check
-        server 20639-web-02 54.90.28.250:80 check
+    server 368703-web-01 34.224.63.120:80 check
+    server 20639-web-02 368703-web-02:80 check
 
-backend letsencrypt-backend
-        server letsencrypt 127.0.0.1:54321
-#--0xissam.tech-params-end--
+frontend munyasi.tech-frontend
+        bind *:80
+        mode http
+
+        default_backend munyasi.tech-backend
+#--munyasi.tech-params-end--
